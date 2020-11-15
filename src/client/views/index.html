@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans:400"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="booking" class="section">
+      <div class="section-center">
+        <div class="container">
+          <div class="row">
+            <div class="booking-form">
+              <form>
+                <div class="form-group">
+                  <div class="form-checkbox">
+                    <label for="roundtrip">
+                      <input type="radio" id="roundtrip" name="flight-type" />
+                      <span></span>Roundtrip
+                    </label>
+                    <label for="one-way">
+                      <input type="radio" id="one-way" name="flight-type" />
+                      <span></span>One way
+                    </label>
+                    <label for="multi-city">
+                      <input type="radio" id="multi-city" name="flight-type" />
+                      <span></span>Multi-City
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <span class="form-label">Flying from</span>
+                      <input
+                        id="place"
+                        class="form-control"
+                        type="text"
+                        placeholder="City or airport"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Departing</span>
+                      <input
+                        id="depDate"
+                        class="form-control"
+                        type="date"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Returning</span>
+                      <input
+                        id="renDate"
+                        class="form-control"
+                        type="date"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row result">
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Duration</span>
+                      <div id="duration" class="form-control"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Country</span>
+                      <div id="country" class="form-control"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Latitude</span>
+                      <div id="latitude" class="form-control"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Longitude</span>
+                      <div id="longitude" class="form-control"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">High</span>
+                      <div id="high" class="form-control"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Low</span>
+                      <div id="low" class="form-control"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pos"><img src="" alt="" id="img" /></div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-btn">
+                      <button id="btn" class="submit-btn">Show flights</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+  </body>
+</html>
