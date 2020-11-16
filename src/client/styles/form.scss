@@ -179,6 +179,7 @@
 .result {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 #img {
@@ -186,14 +187,41 @@
 }
 
 @media (max-width: 800px) {
-  .result {
-    flex-direction: column;
-  }
+  // .result {
+  //   display: flex;
+  //   flex-direction: column;
+  //   text-align: center;
+  // }
   .booking-form .submit-btn {
     margin: auto;
   }
   .section {
     position: relative;
-    height: 1100px;
+    height: 1200px;
+  }
+
+ 
+
+  .booking-form .form-control {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    align-items: center;
+  }
+
+  #booking {
+    font-family: "PT Sans", sans-serif;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #img {
+    width: 200px;
+    margin-right: 200px;
+  }
+  .booking-form {
+    width: auto;
   }
 }

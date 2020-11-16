@@ -2,6 +2,7 @@ const myuser = "raghad96";
 const submit = document.getElementById("btn");
 const weatherBitURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
 const weatherBitKey = "&key=a84e89bcc5dc4bf6b433309fd772c3dc";
+// const weatherBitURL = "https://api.weatherbit.io/v2.0/current?";
 
 document.addEventListener("DOMContentLoaded", function () {
   submit.addEventListener("click", handleSubmit);
@@ -13,8 +14,10 @@ function handleSubmit(event) {
   const place = document.getElementById("place").value;
   const depDate = document.getElementById("depDate").value;
   const renDate = document.getElementById("renDate").value;
+  // const start = new Date(depDate).getTime();
+  // const end = new Date(renDate).getTime();
   const geoNames = `http://api.geonames.org/searchJSON?q=${place}&username=${myuser}`;
-  const pixabayUrl = `https://pixabay.com/api/?key=19113700-42c3b223b004e42e72744fef8&q=${place}&image_type=photo`;
+  const pixabayUrl = `https://pixabay.com/api/?key=19113700-42c3b223b004e42e72744fef8&q=${place}&image_type=photo&category=places`;
   myplace(geoNames).then(function (geoNamesData) {
     getweatherBit(
       geoNamesData.geonames[0].lat,
@@ -27,8 +30,8 @@ function handleSubmit(event) {
           imageUrl: imageFormat,
           latitude: geoNamesData.geonames[0].lat,
           longitude: geoNamesData.geonames[0].lng,
-          high: weatherbitData.data[0].max_temp,
-          low: weatherbitData.data[0].min_temp,
+          high: weatherbitData.data[0].high_temp,
+          low: weatherbitData.data[0].low_temp,
           country: geoNamesData.geonames[0].countryName,
         });
         updateUI();
@@ -67,7 +70,7 @@ const getweatherBit = async (lan, lot, depDate, renDate) => {
   );
   try {
     const data = await res.json();
-    console.log(data);
+    console.log("weather", data);
     return data;
   } catch (error) {
     console.log("Error", error);
